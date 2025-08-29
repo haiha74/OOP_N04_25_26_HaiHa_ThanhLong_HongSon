@@ -1,7 +1,7 @@
 ## OOP_N04_25_26_HaiHa_ThanhLong_HongSon**
-Thành viên : Nguyễn Hải Hà
-Thành viên : Vũ Thành Long
-
+**Thành viên** : Nguyễn Hải Hà
+**Thành viên** : Vũ Thành Long
+**Thành viên** : Phạm Hồng Sơn
 ## Hệ thống sẽ bao gồm các chức năng cơ bản sau:**
 
 + Quản lý sách: Thêm, sửa, xóa thông tin sách; kiểm tra tình trạng sách. 
@@ -27,6 +27,7 @@ thư viện, danh sách độc giả vi phạm thời gian trả sách.
 <img width="793" height="574" alt="image" src="https://github.com/user-attachments/assets/a808cd2a-51bb-4e22-bca4-59ebfeed78d2" />
 
 **1.2 UML Sequence Diagram**
+
 ***1.2.1 Quản lí sách***
 
 <img width="867" height="534" alt="image" src="https://github.com/user-attachments/assets/7e8cf5a7-a4a4-444f-9712-79c203e7910d" />
