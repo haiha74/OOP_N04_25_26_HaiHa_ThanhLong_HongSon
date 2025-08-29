@@ -22,4 +22,6 @@ thư viện, danh sách độc giả vi phạm thời gian trả sách.
 
 ## Sơ đồ khối yêu cầu**
 **1.1 UML Class Diagram**
+
+
 <img width="793" height="574" alt="image" src="https://github.com/user-attachments/assets/a808cd2a-51bb-4e22-bca4-59ebfeed78d2" />
