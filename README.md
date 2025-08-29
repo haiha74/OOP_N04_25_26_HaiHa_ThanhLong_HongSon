@@ -1,8 +1,15 @@
 ## OOP_N04_25_26_HaiHa_ThanhLong_HongSon**
 ## 👨‍🎓 Thông tin sinh viên
--**Thành viên** : Nguyễn Hải Hà
--**Thành viên** : Vũ Thành Long
--**Thành viên** : Phạm Hồng Sơn
+
+- **Thành Viên:** Nguyễn Hải Hà  
+- **Mã sinh viên:** 23010469
+- 
+- **Thành Viên:** Vũ Thành Long
+- **Mã sinh viên:** 23010882
+
+- **Thành Viên:** Phạm Hồng Sơn
+- **Mã sinh viên:** 23010883    
+
 ## Hệ thống sẽ bao gồm các chức năng cơ bản sau:**
 
 + Quản lý sách: Thêm, sửa, xóa thông tin sách; kiểm tra tình trạng sách. 
