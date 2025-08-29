@@ -28,10 +28,14 @@ thư viện, danh sách độc giả vi phạm thời gian trả sách.
 
 **1.2 UML Sequence Diagram**
 
-**1.2.1 Quản lí sách**
+**1.2.1 Đăng kí/Đăng nhập**
+
+<img width="855" height="532" alt="image" src="https://github.com/user-attachments/assets/a0b509f0-3eaf-46f4-8bb4-f0307387077f" />
+
+**1.2.2 Quản lí sách**
 
 <img width="867" height="534" alt="image" src="https://github.com/user-attachments/assets/7e8cf5a7-a4a4-444f-9712-79c203e7910d" />
 
-**1.2.2 Kiểm tra/trả về**
+**1.2.3 Kiểm tra/trả về**
 
 <img width="1006" height="586" alt="image" src="https://github.com/user-attachments/assets/f83a4693-fc07-4f1b-9e12-3e0756f1b472" />
