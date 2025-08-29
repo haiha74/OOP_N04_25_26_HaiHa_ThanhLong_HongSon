@@ -1,16 +1,16 @@
-## OOP_N04_25_26_HaiHa_ThanhLong_HongSon**
+## OOP_N04_25_26_HaiHa_ThanhLong_HongSon
 ## 👨‍🎓 Thông tin sinh viên
-
+##
 - **Thành Viên:** Nguyễn Hải Hà  
 - **Mã sinh viên:** 23010469
-
+##
 - **Thành Viên:** Vũ Thành Long
 - **Mã sinh viên:** 23010882
-
+##
 - **Thành Viên:** Phạm Hồng Sơn
 - **Mã sinh viên:** 23010883    
 
-## Hệ thống sẽ bao gồm các chức năng cơ bản sau:**
+## Hệ thống sẽ bao gồm các chức năng cơ bản sau:
 
 + Quản lý sách: Thêm, sửa, xóa thông tin sách; kiểm tra tình trạng sách. 
 + Quản lý độc giả: Thêm mới, cập nhật thông tin độc giả; kiểm soát số lượng sách mà mỗi 
@@ -22,13 +22,13 @@ loại, năm xuất bản,…
 + Báo cáo thống kê: Hiển thị danh sách sách đang được mượn, số lượng sách còn lại trong 
 thư viện, danh sách độc giả vi phạm thời gian trả sách.
 
-## Công nghệ sử dụng:**
+## Công nghệ sử dụng:
 + Giao diện Java Spring Boot.
 + Ngôn ngữ lập trình: Java 
 + Môi trường lập trình: Vscode
 + Lưu trữ dữ liệu: MySQL để lưu thông tin sách và độc giả
 
-## Sơ đồ khối yêu cầu**
+## Sơ đồ khối yêu cầu : 
 **1.1 UML Class Diagram**
 
 
