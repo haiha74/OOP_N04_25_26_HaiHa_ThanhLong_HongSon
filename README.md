@@ -30,7 +30,8 @@ thư viện, danh sách độc giả vi phạm thời gian trả sách.
 
 **1.2.1 Đăng kí/Đăng nhập**
 
-<img width="855" height="532" alt="image" src="https://github.com/user-attachments/assets/a0b509f0-3eaf-46f4-8bb4-f0307387077f" />
+<img width="855" height="532" alt="image" src="https://github.com/user-attachments/assets/d91c9528-c2aa-409a-9954-329d19c65f03" />
+
 
 **1.2.2 Quản lí sách**
 
