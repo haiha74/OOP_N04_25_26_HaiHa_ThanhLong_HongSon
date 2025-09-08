@@ -33,8 +33,8 @@ public class User {
     }
 
     public void forgotPasswordOrUsername(){
-
-        
-        //return new User();
+        this.username = "defaultUser";
+        this.password = "123456";
+        System.out.println("Tai khoan da duoc resset");
     }
 }
