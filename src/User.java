@@ -13,7 +13,7 @@ public class User {
         return username;
     }
 
-    public void setUsername(Sring username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -22,7 +22,7 @@ public class User {
         return password;
     }
 
-    public void setPassword(Sring password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -32,9 +32,9 @@ public class User {
         return "User{username='" + username + "', password='" + password + "'}";
     }
 
-    public User forgotPasswordOrUsername(){
+    public void forgotPasswordOrUsername(){
 
         
-        return new User();
+        //return new User();
     }
 }
