@@ -43,7 +43,8 @@ Hệ thống tập trung vào quản lý các đối tượng chính trong thư 
 <img width="793" height="574" alt="image" src="https://github.com/user-attachments/assets/a808cd2a-51bb-4e22-bca4-59ebfeed78d2" />
 
 **1.1.1 Class Diagram của 3 đối tượng**
-<img width="769" height="185" alt="image" src="https://github.com/user-attachments/assets/d71c06a2-b789-4785-86a3-94770e116681" />
+<img width="765" height="354" alt="image" src="https://github.com/user-attachments/assets/7d9a1807-c946-4674-a2d4-a18c94ca89a0" />
+
 
 
 **1.2 UML Sequence Diagram**
