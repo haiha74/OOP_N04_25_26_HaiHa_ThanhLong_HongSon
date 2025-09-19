@@ -22,6 +22,13 @@ loại, năm xuất bản,…
 + Báo cáo thống kê: Hiển thị danh sách sách đang được mượn, số lượng sách còn lại trong 
 thư viện, danh sách độc giả vi phạm thời gian trả sách.
 
+## Đối tượng nghiên cứu
+Hệ thống tập trung vào quản lý các đối tượng chính trong thư viện, bao gồm:
+
+Sách: Thông tin về sách như mã sách, tiêu đề, tác giả, thể loại, số lượng, tình trạng.
+Độc giả: Quản lý danh sách độc giả, bao gồm họ tên, mã độc giả, thông tin liên hệ, lịch sử mượn – trả.
+Quá trình mượn – trả sách: Ghi nhận thông tin về sách đã mượn, hạn trả, tình trạng sách khi trả và các khoản phạt nếu trả muộn.
+
 ## Công nghệ sử dụng:
 + Giao diện Java Spring Boot.
 + Ngôn ngữ lập trình: Java 
