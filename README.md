@@ -12,25 +12,24 @@
 
 ## Hệ thống sẽ bao gồm các chức năng cơ bản sau:
 
-+ Quản lý sách: Thêm, sửa, xóa thông tin sách; kiểm tra tình trạng sách. 
-+ Quản lý độc giả: Thêm mới, cập nhật thông tin độc giả; kiểm soát số lượng sách mà mỗi 
+//+ Quản lý sách: Thêm, sửa, xóa thông tin sách; kiểm tra tình trạng sách. 
+//+ Quản lý độc giả: Thêm mới, cập nhật thông tin độc giả; kiểm soát số lượng sách mà mỗi 
 độc giả có thể mượn, xem lịch sử ghi mượn,.. 
-+ Quản lý mượn – trả sách: Xử lý yêu cầu mượn sách, ghi nhận ngày mượn, hạn trả, kiểm 
+//+ Quản lý mượn – trả sách: Xử lý yêu cầu mượn sách, ghi nhận ngày mượn, hạn trả, kiểm 
 tra sách quá hạn và tính phí phạt nếu có. 
-+ Tìm kiếm sách: Cho phép tra cứu sách theo các tiêu chí như mã sách, tiêu đề, tác giả, thể 
+//+ Tìm kiếm sách: Cho phép tra cứu sách theo các tiêu chí như mã sách, tiêu đề, tác giả, thể 
 loại, năm xuất bản,… 
-+ Báo cáo thống kê: Hiển thị danh sách sách đang được mượn, số lượng sách còn lại trong 
+//+ Báo cáo thống kê: Hiển thị danh sách sách đang được mượn, số lượng sách còn lại trong 
 thư viện, danh sách độc giả vi phạm thời gian trả sách.
 
 
 + Quản lý sách: Thêm, sửa, xóa thông tin sách; kiểm tra tình trạng sách. 
 + Quản lý khách hàng: Thêm mới, cập nhật thông tin khách hàng; xem lịch sử mua sách,.. 
-+ Quản lý mượn – trả sách: Xử lý yêu cầu mượn sách, ghi nhận ngày mượn, hạn trả, kiểm 
-tra sách quá hạn và tính phí phạt nếu có. 
++ Quản lý đơn hàng,hóa đơn: Xử lý yêu cầu mua sách, ghi nhận ngày mua, số tiền. 
 + Tìm kiếm sách: Cho phép tra cứu sách theo các tiêu chí như mã sách, tiêu đề, tác giả, thể 
 loại, năm xuất bản,… 
-+ Báo cáo thống kê: Hiển thị danh sách sách đang được mượn, số lượng sách còn lại trong 
-thư viện, danh sách độc giả vi phạm thời gian trả sách.
++ Báo cáo thống kê: Hiển thị danh sách sách đã được mua, số lượng sách còn lại trong 
+cửa hàng, thống kê .
 
 ## Đối tượng nghiên cứu
 Hệ thống tập trung vào quản lý các đối tượng chính trong thư viện, bao gồm:
