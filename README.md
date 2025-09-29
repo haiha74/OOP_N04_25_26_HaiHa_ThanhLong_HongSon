@@ -22,19 +22,34 @@ loại, năm xuất bản,…
 + Báo cáo thống kê: Hiển thị danh sách sách đang được mượn, số lượng sách còn lại trong 
 thư viện, danh sách độc giả vi phạm thời gian trả sách.
 
+
++ Quản lý sách: Thêm, sửa, xóa thông tin sách; kiểm tra tình trạng sách. 
++ Quản lý khách hàng: Thêm mới, cập nhật thông tin khách hàng; xem lịch sử mua sách,.. 
++ Quản lý mượn – trả sách: Xử lý yêu cầu mượn sách, ghi nhận ngày mượn, hạn trả, kiểm 
+tra sách quá hạn và tính phí phạt nếu có. 
++ Tìm kiếm sách: Cho phép tra cứu sách theo các tiêu chí như mã sách, tiêu đề, tác giả, thể 
+loại, năm xuất bản,… 
++ Báo cáo thống kê: Hiển thị danh sách sách đang được mượn, số lượng sách còn lại trong 
+thư viện, danh sách độc giả vi phạm thời gian trả sách.
+
 ## Đối tượng nghiên cứu
 Hệ thống tập trung vào quản lý các đối tượng chính trong thư viện, bao gồm:
 
-+ Người quản lí : Thêm , sửa , xóa người quản lí
-+ Sách: Thông tin về sách như mã sách, tiêu đề, tác giả, thể loại, số lượng, tình trạng.
-+ Độc giả: Quản lý danh sách độc giả, bao gồm họ tên, mã độc giả, thông tin liên hệ, lịch sử mượn – trả.
-+ Quá trình mượn – trả sách: Ghi nhận thông tin về sách đã mượn, hạn trả, tình trạng sách khi trả và các khoản phạt nếu trả muộn.
+//+ Người quản lí : Thêm , sửa , xóa người quản lí
+//+ Sách: Thông tin về sách như mã sách, tiêu đề, tác giả, thể loại, số lượng, tình trạng.
+//+ Độc giả: Quản lý danh sách độc giả, bao gồm họ tên, mã độc giả, thông tin liên hệ, lịch sử mượn – trả.
+//+ Quá trình mượn – trả sách: Ghi nhận thông tin về sách đã mượn, hạn trả, tình trạng sách khi trả và các khoản phạt nếu trả muộn.
 
++ Người quản lí : thêm, sửa, xóa người quản lí (admin)
++ Sách : Thông tin về sách như mã sách, tên sách, tác giả, thể loại, giá bán,
++ Khách hàng : Quản lí danh sách khách hàng, bao gồm họ tên, mã khách hàng, thông tin liên hệ, lịch sử mua sách
++ Hóa đơn : Ghi nhận thông tin về sách đã mua , số tiền , ngày mua ,...
++ Nhân viên : 
 ## Công nghệ sử dụng:
 + Giao diện Java Spring Boot.
 + Ngôn ngữ lập trình: Java 
 + Môi trường lập trình: Vscode
-+ Lưu trữ dữ liệu: MySQL để lưu thông tin sách và độc giả
++ Lưu trữ dữ liệu: MySQL để lưu thông tin sách, khách hàng và hóa đơn
 
 ## Sơ đồ khối yêu cầu : 
 **1.1 UML Class Diagram**
