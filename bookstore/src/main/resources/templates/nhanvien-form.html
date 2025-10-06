@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Thêm / Sửa Nhân viên</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body class="container">
+
+<h1>👔 Thêm / Sửa Nhân viên</h1>
+
+<form th:action="@{/nhanvien/save}" th:object="${nhanvien}" method="post">
+  <input type="hidden" th:field="*{id}" />
+
+  <label>Tên nhân viên:</label>
+  <input type="text" th:field="*{tenNhanVien}" />
+
+  <label>Chức vụ:</label>
+  <input type="text" th:field="*{chucVu}" />
+
+  <label>Lương:</label>
+  <input type="number" step="0.01" th:field="*{luong}" />
+
+  <label>Số điện thoại:</label>
+  <input type="text" th:field="*{soDienThoai}" />
+
+  <button type="submit" class="btn btn-add">💾 Lưu</button>
+  <a th:href="@{/nhanvien}" class="btn btn-back">↩ Quay lại</a>
+</form>
+
+</body>
+</html>

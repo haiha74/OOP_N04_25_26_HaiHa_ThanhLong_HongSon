@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách Nhân viên</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body class="container">
+
+<h1>👔 Danh sách Nhân viên</h1>
+
+<a class="btn btn-add" th:href="@{/nhanvien/add}">+ Thêm nhân viên</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th><th>Tên nhân viên</th><th>Chức vụ</th><th>Lương</th><th>Số điện thoại</th><th>Thao tác</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="nv : ${listNhanVien}">
+      <td th:text="${nv.id}"></td>
+      <td th:text="${nv.tenNhanVien}"></td>
+      <td th:text="${nv.chucVu}"></td>
+      <td th:text="${nv.luong}"></td>
+      <td th:text="${nv.soDienThoai}"></td>
+      <td>
+        <a class="btn btn-edit" th:href="@{'/nhanvien/edit/' + ${nv.id}}">✏️ Sửa</a>
+        <a class="btn btn-delete" th:href="@{'/nhanvien/delete/' + ${nv.id}}">🗑️ Xóa</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

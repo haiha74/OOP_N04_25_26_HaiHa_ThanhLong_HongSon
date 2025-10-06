@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách khách hàng</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body class="container">
+
+<h1>👤 Danh sách Khách hàng</h1>
+
+<a class="btn btn-add" th:href="@{/khachhang/add}">+ Thêm khách hàng</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên</th>
+      <th>Điện thoại</th>
+      <th>Email</th>
+      <th>Địa chỉ</th>
+      <th>Thao tác</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="kh : ${listKhach}">
+      <td th:text="${kh.id}"></td>
+      <td th:text="${kh.tenKhach}"></td>
+      <td th:text="${kh.soDienThoai}"></td>
+      <td th:text="${kh.email}"></td>
+      <td th:text="${kh.diaChi}"></td>
+      <td>
+        <a class="btn btn-edit" th:href="@{'/khachhang/edit/' + ${kh.id}}">✏️ Sửa</a>
+        <a class="btn btn-delete" th:href="@{'/khachhang/delete/' + ${kh.id}}">🗑️ Xóa</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thêm sách</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+<h1>Thêm/Sửa Sách</h1>
+<form th:action="@{/sach/save}" th:object="${sach}" method="post">
+  Tên sách: <input type="text" th:field="*{tenSach}"/><br/>
+  Tác giả: <input type="text" th:field="*{tacGia}"/><br/>
+  Thể loại: <input type="text" th:field="*{theLoai}"/><br/>
+  Giá: <input type="number" th:field="*{giaBan}"/><br/>
+  Số lượng: <input type="number" th:field="*{soLuong}"/><br/>
+  <button type="submit">Lưu</button>
+</form>
+</body>
+</html>
