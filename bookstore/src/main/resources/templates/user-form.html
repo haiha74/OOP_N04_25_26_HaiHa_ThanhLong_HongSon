@@ -1,56 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Thêm/Sửa người dùng</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <meta charset="UTF-8">
+  <title>Đặt mua sách</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="container mt-4">
+<body class="container mt-5">
 
-<h2 class="text-center text-info">✏️ Thông tin người dùng</h2>
+  <h2 class="text-center text-primary mb-4">Đặt mua sách</h2>
 
-<form th:action="@{/user/save}" th:object="${user}" method="post" class="mt-3">
-    <input type="hidden" th:field="*{id}">
-
-    <div class="mb-3">
-        <label>Họ tên</label>
-        <input type="text" th:field="*{fullName}" class="form-control" required>
-    </div>
+  <form th:action="@{/user/save}" th:object="${user}" method="post"
+        class="col-md-6 mx-auto border rounded-4 p-4 shadow">
 
     <div class="mb-3">
-        <label>Tên đăng nhập</label>
-        <input type="text" th:field="*{username}" class="form-control" required>
+      <label class="form-label">Tên sách</label>
+      <input type="text" th:field="*{tenSach}" class="form-control" readonly>
     </div>
 
     <div class="mb-3">
-        <label>Mật khẩu</label>
-        <input type="password" th:field="*{password}" class="form-control" placeholder="••••••••">
+      <label class="form-label">Họ tên</label>
+      <input type="text" th:field="*{hoTen}" class="form-control" required>
     </div>
 
     <div class="mb-3">
-        <label>Email</label>
-        <input type="email" th:field="*{email}" class="form-control">
+      <label class="form-label">Số điện thoại</label>
+      <input type="text" th:field="*{sdt}" class="form-control" required>
     </div>
 
     <div class="mb-3">
-        <label>Số điện thoại</label>
-        <input type="text" th:field="*{phone}" class="form-control">
+      <label class="form-label">Địa chỉ</label>
+      <input type="text" th:field="*{diaChi}" class="form-control" required>
     </div>
 
-    <div class="mb-3">
-        <label>Vai trò</label>
-        <select th:field="*{role}" class="form-select">
-            <option value="USER">Khách hàng</option>
-            <option value="EMPLOYEE">Nhân viên</option>
-            <option value="ADMIN">Quản trị viên</option>
-        </select>
-    </div>
-
-    <div class="text-center">
-        <button type="submit" class="btn btn-primary">💾 Lưu</button>
-        <a href="/user/list" class="btn btn-secondary">⬅ Quay lại</a>
-    </div>
-</form>
+    <button type="submit" class="btn btn-primary w-100">Gửi đơn hàng</button>
+  </form>
 
 </body>
 </html>

@@ -1,12 +1,8 @@
 package com.longsonha.bookstore.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
 @Table(name = "users")
 public class User {
 
@@ -14,24 +10,24 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String fullName;
+    private String hoTen;
+    private String sdt;
+    private String diaChi;
+    private String tenSach;
 
-    @Column(nullable = false, unique = true)
-    private String username;
+    // Getters & Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    @Column(nullable = false)
-    private String password;
+    public String getHoTen() { return hoTen; }
+    public void setHoTen(String hoTen) { this.hoTen = hoTen; }
 
-    @Column(nullable = false)
-    private String role; // "USER", "ADMIN", "EMPLOYEE"
+    public String getSdt() { return sdt; }
+    public void setSdt(String sdt) { this.sdt = sdt; }
 
-    @Column(nullable = true)
-    private String email;
+    public String getDiaChi() { return diaChi; }
+    public void setDiaChi(String diaChi) { this.diaChi = diaChi; }
 
-    @Column(nullable = true)
-    private String phone;
-
-    @Column(nullable = true)
-    private String address;
+    public String getTenSach() { return tenSach; }
+    public void setTenSach(String tenSach) { this.tenSach = tenSach; }
 }

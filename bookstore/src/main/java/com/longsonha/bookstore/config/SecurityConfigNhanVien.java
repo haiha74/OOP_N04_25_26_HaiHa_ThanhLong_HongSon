@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@Order(2)
+@Order(1)
 public class SecurityConfigNhanVien {
 
     private final CustomUserDetailsService userDetailsService;
@@ -20,33 +20,36 @@ public class SecurityConfigNhanVien {
     }
 
     @Bean
-    public DaoAuthenticationProvider nvAuthProvider() {
+    public DaoAuthenticationProvider nvAuthProvider(BCryptPasswordEncoder encoder) {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(new BCryptPasswordEncoder());
+        provider.setPasswordEncoder(encoder);
         return provider;
     }
 
     @Bean
     public SecurityFilterChain nhanVienSecurity(HttpSecurity http) throws Exception {
-        http.securityMatcher("/nhanvien/**")
-            .authenticationProvider(nvAuthProvider())
+        http
+            .securityMatcher("/nhanvien/**")
+            .authenticationProvider(nvAuthProvider(new BCryptPasswordEncoder()))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/nhanvien/login").permitAll()
+                .requestMatchers("/nhanvien/login", "/css/**").permitAll()
                 .anyRequest().hasRole("EMPLOYEE")
             )
             .formLogin(form -> form
                 .loginPage("/nhanvien/login")
                 .loginProcessingUrl("/nhanvien/login")
-                .defaultSuccessUrl("/nhanvien/home", true)
+                .defaultSuccessUrl("/nhanvien/dashboard", true)
                 .failureUrl("/nhanvien/login?error")
                 .permitAll()
             )
             .logout(logout -> logout
                 .logoutUrl("/nhanvien/logout")
                 .logoutSuccessUrl("/nhanvien/login?logout")
+                .permitAll()
             )
             .csrf(csrf -> csrf.disable());
+
         return http.build();
     }
 }

@@ -1,8 +1,8 @@
 package com.longsonha.bookstore.controller;
 
 import com.longsonha.bookstore.model.User;
-import com.longsonha.bookstore.repository.UserRepository;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.longsonha.bookstore.service.SachService;
+import com.longsonha.bookstore.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,52 +11,41 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserRepository userRepo;
-    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    private final SachService sachService;
+    private final UserService userService;
 
-    public UserController(UserRepository userRepo) {
-        this.userRepo = userRepo;
+    public UserController(SachService sachService, UserService userService) {
+        this.sachService = sachService;
+        this.userService = userService;
     }
 
-    //  Trang chủ sau khi login user
+    // Trang chu cho User
     @GetMapping("/home")
-    public String userHome() {
-        return "user-home"; // templates/user-home.html
+    public String home(Model model) {
+        model.addAttribute("books", sachService.getAll());
+        return "user-home";
     }
 
-    //  Danh sách user
+    // Dat hang
+    @GetMapping("/order/{tenSach}")
+    public String orderForm(@PathVariable String tenSach, Model model) {
+        User user = new User();
+        user.setTenSach(tenSach);
+        model.addAttribute("user", user);
+        return "user-form";
+    }
+
+    // Luu thong tin User ve DataBase
+    @PostMapping("/save")
+    public String saveUser(@ModelAttribute("user") User user) {
+        userService.save(user);
+        return "redirect:/user/home?success";
+    }
+
+    // CRUD Admin
     @GetMapping("/list")
     public String listUsers(Model model) {
-        model.addAttribute("listUsers", userRepo.findAll());
-        return "user-list";
-    }
-
-    @GetMapping("/add")
-    public String addForm(Model model) {
-        model.addAttribute("user", new User());
-        return "user-form";
-    }
-
-    @PostMapping("/save")
-    public String saveUser(@ModelAttribute User user) {
-        // Ma hoa Password
-        user.setPassword(encoder.encode(user.getPassword()));
-        if (user.getRole() == null || user.getRole().isEmpty()) {
-            user.setRole("USER");
-        }
-        userRepo.save(user);
-        return "redirect:/user/list";
-    }
-
-    @GetMapping("/edit/{id}")
-    public String editForm(@PathVariable Long id, Model model) {
-        model.addAttribute("user", userRepo.findById(id).orElseThrow());
-        return "user-form";
-    }
-
-    @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable Long id) {
-        userRepo.deleteById(id);
-        return "redirect:/user/list";
+        model.addAttribute("users", userService.getAll());
+        return "admin-user-list";
     }
 }

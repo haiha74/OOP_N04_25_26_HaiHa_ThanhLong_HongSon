@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@Order(1)
+@Order(2)
 public class SecurityConfigAdmin {
 
     private final CustomUserDetailsService userDetailsService;
@@ -34,10 +34,11 @@ public class SecurityConfigAdmin {
 
     @Bean
     public SecurityFilterChain adminSecurity(HttpSecurity http) throws Exception {
-        http.securityMatcher("/admin/**")
+        http
+            .securityMatcher("/admin/**")
             .authenticationProvider(adminAuthProvider())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/admin/login").permitAll()
+                .requestMatchers("/admin/login", "/css/**").permitAll()
                 .anyRequest().hasRole("ADMIN")
             )
             .formLogin(form -> form
@@ -50,10 +51,10 @@ public class SecurityConfigAdmin {
             .logout(logout -> logout
                 .logoutUrl("/admin/logout")
                 .logoutSuccessUrl("/admin/login?logout")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
+                .permitAll()
             )
             .csrf(csrf -> csrf.disable());
+
         return http.build();
     }
 }
