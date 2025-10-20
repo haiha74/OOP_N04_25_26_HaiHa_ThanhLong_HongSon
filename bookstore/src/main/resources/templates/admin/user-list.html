@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý khách hàng (User)</title>
+</head>
+<body>
+<h2>Danh sách khách hàng (User)</h2>
+<a href="/admin/users/new">Thêm khách hàng mới</a>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Họ tên</th>
+            <th>SĐT</th>
+            <th>Địa chỉ</th>
+            <th>Tên sách</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="u : ${users}">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.hoTen}"></td>
+            <td th:text="${u.sdt}"></td>
+            <td th:text="${u.diaChi}"></td>
+            <td th:text="${u.tenSach}"></td>
+            <td>
+                <a th:href="@{'/admin/users/edit/' + ${u.id}}">Sửa</a> |
+                <a th:href="@{'/admin/users/delete/' + ${u.id}}"
+                   onclick="return confirm('Xoá khách hàng này?')">Xoá</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a href="/admin/dashboard">Quay lại</a>
+</body>
+</html>
