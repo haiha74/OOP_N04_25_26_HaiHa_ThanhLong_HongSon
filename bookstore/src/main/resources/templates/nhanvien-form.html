@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Thêm / Sửa Nhân viên</title>
-  <link rel="stylesheet" th:href="@{/style.css}">
+    <meta charset="UTF-8">
+    <title>Thêm / Sửa nhân viên</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="container">
+<body class="container mt-4">
+    <h2 class="mb-4 text-center">Thêm / Sửa nhân viên</h2>
 
-<h1>👔 Thêm / Sửa Nhân viên</h1>
-
-<form th:action="@{/nhanvien/save}" th:object="${nhanvien}" method="post">
-  <input type="hidden" th:field="*{id}" />
-
-  <label>Tên nhân viên:</label>
-  <input type="text" th:field="*{tenNhanVien}" />
-
-  <label>Chức vụ:</label>
-  <input type="text" th:field="*{chucVu}" />
-
-  <label>Lương:</label>
-  <input type="number" step="0.01" th:field="*{luong}" />
-
-  <label>Số điện thoại:</label>
-  <input type="text" th:field="*{soDienThoai}" />
-
-  <button type="submit" class="btn btn-add">💾 Lưu</button>
-  <a th:href="@{/nhanvien}" class="btn btn-back">↩ Quay lại</a>
-</form>
-
+    <form th:action="@{/admin/nhanvien/save}" th:object="${nhanvien}" method="post" class="w-50 mx-auto">
+        <input type="hidden" th:field="*{id}">
+        <div class="mb-3">
+            <label class="form-label">Họ tên</label>
+            <input type="text" th:field="*{fullName}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tên đăng nhập</label>
+            <input type="text" th:field="*{username}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Mật khẩu</label>
+            <input type="password" th:field="*{password}" class="form-control" required>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">💾 Lưu</button>
+            <a href="/admin/nhanvien/list" class="btn btn-secondary">Hủy</a>
+        </div>
+    </form>
 </body>
 </html>

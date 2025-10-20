@@ -38,10 +38,11 @@ public class AuthController {
         return "redirect:/user/login?success";
     }
 
+
     //ADMIN LOGIN
-    @GetMapping("/admin/login")
-    public String adminLogin() {
-        return "admin-login";
-    }
+    //@GetMapping("/admin/login")
+    //public String adminLogin() {
+    //    return "admin-login";
+    //}
 
 }

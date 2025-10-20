@@ -10,48 +10,41 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@Order(1)
-public class SecurityConfigAdmin {
+@Order(2)
+public class SecurityConfigNhanVien {
 
     private final CustomUserDetailsService userDetailsService;
 
-    public SecurityConfigAdmin(CustomUserDetailsService userDetailsService) {
+    public SecurityConfigNhanVien(CustomUserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public DaoAuthenticationProvider adminAuthProvider() {
+    public DaoAuthenticationProvider nvAuthProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(passwordEncoder());
+        provider.setPasswordEncoder(new BCryptPasswordEncoder());
         return provider;
     }
 
     @Bean
-    public SecurityFilterChain adminSecurity(HttpSecurity http) throws Exception {
-        http.securityMatcher("/admin/**")
-            .authenticationProvider(adminAuthProvider())
+    public SecurityFilterChain nhanVienSecurity(HttpSecurity http) throws Exception {
+        http.securityMatcher("/nhanvien/**")
+            .authenticationProvider(nvAuthProvider())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/admin/login").permitAll()
-                .anyRequest().hasRole("ADMIN")
+                .requestMatchers("/nhanvien/login").permitAll()
+                .anyRequest().hasRole("EMPLOYEE")
             )
             .formLogin(form -> form
-                .loginPage("/admin/login")
-                .loginProcessingUrl("/admin/login")
-                .defaultSuccessUrl("/admin/dashboard", true)
-                .failureUrl("/admin/login?error")
+                .loginPage("/nhanvien/login")
+                .loginProcessingUrl("/nhanvien/login")
+                .defaultSuccessUrl("/nhanvien/home", true)
+                .failureUrl("/nhanvien/login?error")
                 .permitAll()
             )
             .logout(logout -> logout
-                .logoutUrl("/admin/logout")
-                .logoutSuccessUrl("/admin/login?logout")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
+                .logoutUrl("/nhanvien/logout")
+                .logoutSuccessUrl("/nhanvien/login?logout")
             )
             .csrf(csrf -> csrf.disable());
         return http.build();

@@ -1,44 +1,37 @@
 package com.longsonha.bookstore.model;
 
 import jakarta.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
-    private String password;
+    @Column(nullable = false)
     private String fullName;
-    private String role = "USER"; // mặc định
 
-    public User() {}
+    @Column(nullable = false, unique = true)
+    private String username;
 
-    public User(String username, String password, String fullName, String role) {
-        this.username = username;
-        this.password = password;
-        this.fullName = fullName;
-        this.role = role;
-    }
+    @Column(nullable = false)
+    private String password;
 
-    // Getters & Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    @Column(nullable = false)
+    private String role; // "USER", "ADMIN", "EMPLOYEE"
 
-    public String getUsername() { return username; }
-    public void setUsername(String username) { this.username = username; }
+    @Column(nullable = true)
+    private String email;
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    @Column(nullable = true)
+    private String phone;
 
-    public String getFullName() { return fullName; }
-    public void setFullName(String fullName) { this.fullName = fullName; }
-
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
+    @Column(nullable = true)
+    private String address;
 }

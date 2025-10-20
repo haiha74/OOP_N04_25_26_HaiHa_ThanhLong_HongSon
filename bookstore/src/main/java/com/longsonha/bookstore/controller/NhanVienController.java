@@ -7,15 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/nhanvien")
+@RequestMapping("/admin/nhanvien")
 public class NhanVienController {
+
     private final NhanVienService service;
 
     public NhanVienController(NhanVienService service) {
         this.service = service;
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public String list(Model model) {
         model.addAttribute("listNhanVien", service.getAll());
         return "nhanvien-list";
@@ -28,13 +29,13 @@ public class NhanVienController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("nhanvien") NhanVien nv) {
+    public String save(@ModelAttribute NhanVien nv) {
         service.save(nv);
-        return "redirect:/nhanvien";
+        return "redirect:/admin/nhanvien/list";
     }
 
     @GetMapping("/edit/{id}")
-    public String editForm(@PathVariable Long id, Model model) {
+    public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("nhanvien", service.findById(id));
         return "nhanvien-form";
     }
@@ -42,6 +43,6 @@ public class NhanVienController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         service.delete(id);
-        return "redirect:/nhanvien";
+        return "redirect:/admin/nhanvien/list";
     }
 }

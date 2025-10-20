@@ -3,30 +3,29 @@ package com.longsonha.bookstore.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="nhanvien")
+@Table(name = "nhanvien")
 public class NhanVien {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String tenNhanVien;
-    private String chucVu;
-    private double luong;
-    private String soDienThoai;
+    private String fullName;
+    private String username;
+    private String password;
+    private String role = "EMPLOYEE";
 
-    // Getter & Setter
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public String getTenNhanVien() { return tenNhanVien; }
-    public void setTenNhanVien(String tenNhanVien) { this.tenNhanVien = tenNhanVien; }
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
 
-    public String getChucVu() { return chucVu; }
-    public void setChucVu(String chucVu) { this.chucVu = chucVu; }
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
 
-    public double getLuong() { return luong; }
-    public void setLuong(double luong) { this.luong = luong; }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 
-    public String getSoDienThoai() { return soDienThoai; }
-    public void setSoDienThoai(String soDienThoai) { this.soDienThoai = soDienThoai; }
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 }
