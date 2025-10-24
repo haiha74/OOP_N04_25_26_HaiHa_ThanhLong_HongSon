@@ -68,7 +68,8 @@ public class UserController {
     // Form sửa thông tin khách hàng
     @GetMapping("/admin/users/edit/{id}")
     public String editUser(@PathVariable Long id, Model model) {
-        User u = userService.getById(id);
+
+        User u = userService.findById(id);
         model.addAttribute("user", u);
         return "admin/user-form";
     }

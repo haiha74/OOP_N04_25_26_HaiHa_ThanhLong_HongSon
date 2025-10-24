@@ -8,6 +8,8 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 
 @Configuration
 @Order(2)
@@ -49,8 +51,10 @@ public class SecurityConfigAdmin {
                 .permitAll()
             )
             .logout(logout -> logout
-                .logoutUrl("/admin/logout")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/admin/logout", "GET"))
                 .logoutSuccessUrl("/admin/login?logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
                 .permitAll()
             )
             .csrf(csrf -> csrf.disable());
