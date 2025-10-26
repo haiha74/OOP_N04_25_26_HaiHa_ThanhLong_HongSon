@@ -37,7 +37,7 @@ public class CustomUserDetailsService implements UserDetailsService {
             return org.springframework.security.core.userdetails.User
                     .withUsername(nv.getUsername())
                     .password(nv.getPassword())
-                    .roles("EMPLOYEE")
+                    .roles("NHANVIEN")
                     .build();
         }
 

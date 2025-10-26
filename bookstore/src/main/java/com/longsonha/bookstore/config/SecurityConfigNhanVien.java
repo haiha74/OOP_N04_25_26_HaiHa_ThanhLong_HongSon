@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@Order(1)
+@Order(3)
 public class SecurityConfigNhanVien {
 
     private final CustomUserDetailsService userDetailsService;
@@ -20,10 +20,10 @@ public class SecurityConfigNhanVien {
     }
 
     @Bean
-    public DaoAuthenticationProvider nvAuthProvider(BCryptPasswordEncoder encoder) {
+    public DaoAuthenticationProvider nhanVienAuthProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(encoder);
+        provider.setPasswordEncoder(new BCryptPasswordEncoder());
         return provider;
     }
 
@@ -31,10 +31,10 @@ public class SecurityConfigNhanVien {
     public SecurityFilterChain nhanVienSecurity(HttpSecurity http) throws Exception {
         http
             .securityMatcher("/nhanvien/**")
-            .authenticationProvider(nvAuthProvider(new BCryptPasswordEncoder()))
+            .authenticationProvider(nhanVienAuthProvider())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/nhanvien/login", "/css/**").permitAll()
-                .anyRequest().hasRole("EMPLOYEE")
+                .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .loginPage("/nhanvien/login")

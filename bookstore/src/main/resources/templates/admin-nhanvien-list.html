@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Nhân viên</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body class="container mt-5">
+    <h2 class="text-center text-primary mb-4">📋 Danh sách Nhân viên</h2>
+
+    <div class="mb-3 text-end">
+        <a href="/admin/dashboard" class="btn btn-secondary">Quay lại</a>
+        <a href="/admin/nhanvien/new" class="btn btn-success">Thêm nhân viên</a>
+    </div>
+
+    <table class="table table-bordered text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Họ tên</th>
+                <th>Tên đăng nhập</th>
+                <th>Vai trò</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="nv : ${nhanviens}">
+                <td th:text="${nv.id}"></td>
+                <td th:text="${nv.fullName}"></td>
+                <td th:text="${nv.username}"></td>
+                <td th:text="${nv.role}"></td>
+                <td>
+                    <a th:href="@{'/admin/nhanvien/edit/' + ${nv.id}}" class="btn btn-warning btn-sm">Sửa</a>
+                    <a th:href="@{'/admin/nhanvien/delete/' + ${nv.id}}" class="btn btn-danger btn-sm" 
+                       onclick="return confirm('Bạn có chắc muốn xóa nhân viên này?');">🗑 Xóa</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

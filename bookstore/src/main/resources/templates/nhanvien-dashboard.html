@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng điều khiển Nhân viên</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body class="container mt-5 text-center">
+    <h1 class="text-success mb-4">BẢNG ĐIỀU KHIỂN NHÂN VIÊN</h1>
+    <p>Chọn chức năng bạn muốn thực hiện:</p>
+
+    <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="/admin/sach/list" class="btn btn-primary btn-lg">📚 Quản lý Sách</a>
+        <a href="/admin/users/list" class="btn btn-success btn-lg">👥 Quản lý Khách hàng</a>
+    </div>
+
+    <div class="mt-5">
+        <form th:action="@{/nhanvien/logout}" method="post">
+            <button type="submit" class="btn btn-outline-danger">Đăng xuất</button>
+        </form>
+    </div>
+</body>
+</html>

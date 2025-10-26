@@ -8,11 +8,9 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
 
 @Configuration
-@Order(2)
+@Order(1)
 public class SecurityConfigAdmin {
 
     private final CustomUserDetailsService userDetailsService;
@@ -22,22 +20,17 @@ public class SecurityConfigAdmin {
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
     public DaoAuthenticationProvider adminAuthProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(passwordEncoder());
+        provider.setPasswordEncoder(new BCryptPasswordEncoder());
         return provider;
     }
 
     @Bean
     public SecurityFilterChain adminSecurity(HttpSecurity http) throws Exception {
         http
-            .securityMatcher("/admin/**")
+            .securityMatcher("/admin/**") // Áp dụng cho tất cả URL bắt đầu bằng /admin/
             .authenticationProvider(adminAuthProvider())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/admin/login", "/css/**").permitAll()
@@ -51,10 +44,8 @@ public class SecurityConfigAdmin {
                 .permitAll()
             )
             .logout(logout -> logout
-                .logoutRequestMatcher(new AntPathRequestMatcher("/admin/logout", "GET"))
+                .logoutUrl("/admin/logout")
                 .logoutSuccessUrl("/admin/login?logout")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
                 .permitAll()
             )
             .csrf(csrf -> csrf.disable());
