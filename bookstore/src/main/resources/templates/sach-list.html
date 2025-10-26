@@ -1,14 +1,120 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Danh sách Sách</title>
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007b5e;
+            margin-bottom: 30px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a.add-btn {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 5px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        a.add-btn:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007b5e;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e6ffe6;
+        }
+
+        .actions a {
+            margin: 0 5px;
+            padding: 6px 10px;
+            border-radius: 4px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .actions a.edit {
+            background-color: #007bff;
+        }
+
+        .actions a.edit:hover {
+            background-color: #0069d9;
+        }
+
+        .actions a.delete {
+            background-color: #dc3545;
+        }
+
+        .actions a.delete:hover {
+            background-color: #c82333;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 25px;
+            color: #007b5e;
+            font-weight: 500;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <h1>Danh sách Sách</h1>
-<a th:href="@{/sach/add}">Thêm sách</a>
-<table border="1">
-  <tr><th>ID</th><th>Tên</th><th>Tác giả</th><th>Thể loại</th><th>Giá</th><th>Số lượng</th><th>Thao tác</th></tr>
+
+<a th:href="@{/sach/add}" class="add-btn">Thêm sách</a>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Tên</th>
+    <th>Tác giả</th>
+    <th>Thể loại</th>
+    <th>Giá</th>
+    <th>Số lượng</th>
+    <th>Thao tác</th>
+  </tr>
   <tr th:each="s : ${listSach}">
     <td th:text="${s.id}"></td>
     <td th:text="${s.tenSach}"></td>
@@ -16,12 +122,19 @@
     <td th:text="${s.theLoai}"></td>
     <td th:text="${s.giaBan}"></td>
     <td th:text="${s.soLuong}"></td>
-    <td>
-      <a th:href="@{'/sach/edit/' + ${s.id}}">Sửa</a>
-      <a th:href="@{'/sach/delete/' + ${s.id}}">Xóa</a>
+    <td class="actions">
+      <a th:href="@{'/sach/edit/' + ${s.id}}" class="edit">Sửa</a>
+      
+      <a th:href="@{'/sach/delete/' + ${s.id}}"
+        class="delete"
+        onclick="return confirm('Bạn có chắc muốn xóa sách này không?');">
+        Xóa
+      </a>
+
     </td>
   </tr>
 </table>
-  <a href="/admin/dashboard">Quay lại</a>
+
+<a href="/admin/dashboard" class="back">Quay lại trang quản trị</a>
 </body>
 </html>

@@ -1,18 +1,110 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Thêm sách</title>
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <meta charset="UTF-8">
+    <title>Thêm/Sửa Sách</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007b5e;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus {
+            border-color: #007b5e;
+            box-shadow: 0 0 4px rgba(0,123,94,0.4);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            background-color: #007b5e;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #00664f;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007b5e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<h1>Thêm/Sửa Sách</h1>
+<h1>Thêm / Sửa Sách</h1>
+
 <form th:action="@{/sach/save}" th:object="${sach}" method="post">
-  Tên sách: <input type="text" th:field="*{tenSach}"/><br/>
-  Tác giả: <input type="text" th:field="*{tacGia}"/><br/>
-  Thể loại: <input type="text" th:field="*{theLoai}"/><br/>
-  Giá: <input type="number" th:field="*{giaBan}"/><br/>
-  Số lượng: <input type="number" th:field="*{soLuong}"/><br/>
-  <button type="submit">Lưu</button>
+    <label for="tenSach">Tên sách:</label>
+    <input type="text" id="tenSach" th:field="*{tenSach}" placeholder="Nhập tên sách..." required/>
+
+    <label for="tacGia">Tác giả:</label>
+    <input type="text" id="tacGia" th:field="*{tacGia}" placeholder="Tên tác giả..." required/>
+
+    <label for="theLoai">Thể loại:</label>
+    <input type="text" id="theLoai" th:field="*{theLoai}" placeholder="Ví dụ: Văn học, Kinh tế, CNTT..." required/>
+
+    <label for="giaBan">Giá:</label>
+    <input type="number" id="giaBan" th:field="*{giaBan}" placeholder="Nhập giá bán..." min="0" required/>
+
+    <label for="soLuong">Số lượng:</label>
+    <input type="number" id="soLuong" th:field="*{soLuong}" placeholder="Nhập số lượng..." min="1" required/>
+
+    <button type="submit">Lưu sách</button>
 </form>
+
+<a href="/sach" class="back-link">Quay lại danh sách</a>
 </body>
 </html>

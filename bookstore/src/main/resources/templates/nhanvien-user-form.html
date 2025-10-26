@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Thêm / Sửa Khách hàng</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007b5e;
+      margin-top: 50px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    form {
+      max-width: 500px;
+      background: #fff;
+      margin: 40px auto;
+      padding: 35px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #007b5e;
+      box-shadow: 0 0 5px rgba(0,123,94,0.3);
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      background-color: #007b5e;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00664f;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin: 25px auto;
+      color: #007b5e;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>THÊM / SỬA KHÁCH HÀNG</h2>
+
+  <form th:action="@{/nhanvien/user/save}" th:object="${user}" method="post">
+    <input type="hidden" th:field="*{id}">
+
+    <label for="hoTen">Họ tên:</label>
+    <input type="text" id="hoTen" th:field="*{hoTen}" required>
+
+    <label for="sdt">Số điện thoại:</label>
+    <input type="text" id="sdt" th:field="*{sdt}" required>
+
+    <label for="diaChi">Địa chỉ:</label>
+    <input type="text" id="diaChi" th:field="*{diaChi}" required>
+
+    <label for="tenSach">Tên sách:</label>
+    <input type="text" id="tenSach" th:field="*{tenSach}" required>
+
+    <button type="submit">Lưu</button>
+  </form>
+
+  <a href="/nhanvien/user/list" class="back-link">← Quay lại danh sách</a>
+
+  <footer>© 2025 Nhà sách Long Sơn Hà — Trang quản lý khách hàng</footer>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Thêm / Sửa Sách (Nhân viên)</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007b5e;
+      margin-top: 50px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    form {
+      max-width: 500px;
+      background: #fff;
+      margin: 40px auto;
+      padding: 35px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    input:focus {
+      border-color: #007b5e;
+      box-shadow: 0 0 5px rgba(0,123,94,0.3);
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      background-color: #007b5e;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00664f;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin: 25px auto;
+      color: #007b5e;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>THÊM / SỬA SÁCH (NHÂN VIÊN)</h2>
+
+  <form th:action="@{/nhanvien/sach/save}" th:object="${book}" method="post">
+    <input type="hidden" th:field="*{id}">
+
+    <label for="tenSach">Tên sách:</label>
+    <input type="text" id="tenSach" th:field="*{tenSach}" placeholder="Nhập tên sách..." required/>
+
+    <label for="tacGia">Tác giả:</label>
+    <input type="text" id="tacGia" th:field="*{tacGia}" placeholder="Tên tác giả..." required/>
+
+    <label for="theLoai">Thể loại:</label>
+    <input type="text" id="theLoai" th:field="*{theLoai}" placeholder="Ví dụ: Văn học, Kinh tế, CNTT..." required/>
+
+    <label for="giaBan">Giá:</label>
+    <input type="number" id="giaBan" th:field="*{giaBan}" placeholder="Nhập giá bán..." min="0" required/>
+
+    <label for="soLuong">Số lượng:</label>
+    <input type="number" id="soLuong" th:field="*{soLuong}" placeholder="Nhập số lượng..." min="1" required/>
+
+    <button type="submit">Lưu sách</button>
+  </form>
+
+  <a href="/nhanvien/sach/list" class="back-link">← Quay lại danh sách</a>
+
+  <footer>© 2025 Nhà sách Long Sơn Hà — Trang quản lý sách</footer>
+
+</body>
+</html>

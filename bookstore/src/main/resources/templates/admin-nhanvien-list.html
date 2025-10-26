@@ -3,18 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <title>Danh sách Nhân viên</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-</head>
-<body class="container mt-5">
-    <h2 class="text-center text-primary mb-4">📋 Danh sách Nhân viên</h2>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
 
-    <div class="mb-3 text-end">
-        <a href="/admin/dashboard" class="btn btn-secondary">Quay lại</a>
-        <a href="/admin/nhanvien/new" class="btn btn-success">Thêm nhân viên</a>
+        h2 {
+            text-align: center;
+            color: #0d6efd;
+            margin-bottom: 30px;
+        }
+
+        .top-buttons {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .top-buttons a {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            color: white;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0d6efd;
+            color: white;
+            text-transform: uppercase;
+            font-size: 15px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #e9f3ff;
+        }
+
+        .btn-warning, .btn-danger {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            color: white;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            color: #212529;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Danh sách Nhân viên</h2>
+
+    <div class="top-buttons">
+        <a href="/admin/dashboard" class="btn-secondary">Quay lại</a>
+        <a href="/admin/nhanvien/new" class="btn-success">Thêm nhân viên</a>
     </div>
 
-    <table class="table table-bordered text-center align-middle">
-        <thead class="table-dark">
+    <table>
+        <thead>
             <tr>
                 <th>ID</th>
                 <th>Họ tên</th>
@@ -30,9 +134,9 @@
                 <td th:text="${nv.username}"></td>
                 <td th:text="${nv.role}"></td>
                 <td>
-                    <a th:href="@{'/admin/nhanvien/edit/' + ${nv.id}}" class="btn btn-warning btn-sm">Sửa</a>
-                    <a th:href="@{'/admin/nhanvien/delete/' + ${nv.id}}" class="btn btn-danger btn-sm" 
-                       onclick="return confirm('Bạn có chắc muốn xóa nhân viên này?');">🗑 Xóa</a>
+                    <a th:href="@{'/admin/nhanvien/edit/' + ${nv.id}}" class="btn-warning">Sửa</a>
+                    <a th:href="@{'/admin/nhanvien/delete/' + ${nv.id}}" class="btn-danger"
+                       onclick="return confirm('Bạn có chắc muốn xóa nhân viên này?');">Xóa</a>
                 </td>
             </tr>
         </tbody>

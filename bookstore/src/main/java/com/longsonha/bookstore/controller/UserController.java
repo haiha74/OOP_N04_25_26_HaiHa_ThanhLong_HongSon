@@ -22,10 +22,16 @@ public class UserController {
     // Phần User
     // Trang chủ: hiển thị danh sách sách
     @GetMapping("/user/home")
-    public String home(Model model) {
-        model.addAttribute("books", sachService.getAll());
+    public String home(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            model.addAttribute("books", sachService.searchByName(keyword));
+            model.addAttribute("keyword", keyword);
+        } else {
+            model.addAttribute("books", sachService.getAll());
+        }
         return "user-home";
     }
+
 
     // Trang form đặt hàng cho khách
     @GetMapping("/user/order/{tenSach}")
@@ -48,7 +54,7 @@ public class UserController {
     @GetMapping("/admin/users")
     public String listUsers(Model model) {
         model.addAttribute("users", userService.getAll());
-        return "admin/user-list"; // => templates/admin/user-list.html
+        return "admin/user-list";
     }
 
     // Form thêm khách hàng (admin thêm thủ công)

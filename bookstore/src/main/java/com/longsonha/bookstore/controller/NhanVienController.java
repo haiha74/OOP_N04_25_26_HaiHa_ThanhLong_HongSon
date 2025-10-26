@@ -31,18 +31,18 @@ public class NhanVienController {
     @PostMapping("/save")
     public String save(@ModelAttribute NhanVien nv) {
         service.save(nv);
-        return "redirect:/admin/nhanvien/list";
+        return "redirect:/admin/nhanvien";
     }
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("nhanvien", service.findById(id));
-        return "nhanvien-form";
+        return "admin-nhanvien-form";
     }
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         service.delete(id);
-        return "redirect:/admin/nhanvien/list";
+        return "redirect:/admin/nhanvien";
     }
 }

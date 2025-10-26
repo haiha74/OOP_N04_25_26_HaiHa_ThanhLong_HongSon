@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách Sách</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 40px;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007b5e;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 30px;
+    }
+
+    .top-buttons {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .top-buttons a {
+      display: inline-block;
+      background-color: #007b5e;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0 10px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .top-buttons a.btn-secondary {
+      background-color: #6c757d;
+    }
+
+    .top-buttons a:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+      background-color: #007b5e;
+      color: white;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #eaf8f1;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .btn-warning {
+      background-color: #ffc107;
+      color: #212529;
+    }
+
+    .btn-warning:hover {
+      background-color: #e0a800;
+      transform: translateY(-1px);
+    }
+
+    .btn-danger {
+      background-color: #dc3545;
+    }
+
+    .btn-danger:hover {
+      background-color: #c82333;
+      transform: translateY(-1px);
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>DANH SÁCH SÁCH</h2>
+
+  <div class="top-buttons">
+    <a href="/nhanvien/sach/new" class="btn btn-success">Thêm sách</a>
+    <a href="/nhanvien/dashboard" class="btn btn-secondary">Quay lại</a>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tên sách</th>
+        <th>Tác giả</th>
+        <th>Thể loại</th>
+        <th>Giá bán</th>
+        <th>Số lượng</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="b : ${books}">
+        <td th:text="${b.id}"></td>
+        <td th:text="${b.tenSach}"></td>
+        <td th:text="${b.tacGia}"></td>
+        <td th:text="${b.theLoai}"></td>
+        <td th:text="${b.giaBan}"></td>
+        <td th:text="${b.soLuong}"></td>
+        <td>
+          <a th:href="@{'/nhanvien/sach/edit/' + ${b.id}}" class="btn btn-warning">Sửa</a>
+          <a th:href="@{'/nhanvien/sach/delete/' + ${b.id}}" class="btn btn-danger"
+             onclick="return confirm('Bạn có chắc muốn xóa sách này?');">Xóa</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <footer>© 2025 Nhà sách Long Sơn Hà — Trang quản lý sách dành cho nhân viên</footer>
+</body>
+</html>

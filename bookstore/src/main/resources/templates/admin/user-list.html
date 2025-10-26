@@ -3,38 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <title>Quản lý khách hàng (User)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007b5e;
+            margin-bottom: 25px;
+        }
+
+        a[href="/admin/users/new"] {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        a[href="/admin/users/new"]:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007b5e;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e6ffe6;
+        }
+
+        td a {
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+            color: white;
+        }
+
+        td a:first-child {
+            background-color: #007bff;
+        }
+
+        td a:first-child:hover {
+            background-color: #0069d9;
+        }
+
+        td a:last-child {
+            background-color: #dc3545;
+        }
+
+        td a:last-child:hover {
+            background-color: #c82333;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 25px;
+            color: #007b5e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
-<h2>Danh sách khách hàng (User)</h2>
-<a href="/admin/users/new">Thêm khách hàng mới</a>
+<div class="container">
+    <h2>Danh sách khách hàng (User)</h2>
 
-<table border="1" cellpadding="8" cellspacing="0">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Họ tên</th>
-            <th>SĐT</th>
-            <th>Địa chỉ</th>
-            <th>Tên sách</th>
-            <th>Thao tác</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="u : ${users}">
-            <td th:text="${u.id}"></td>
-            <td th:text="${u.hoTen}"></td>
-            <td th:text="${u.sdt}"></td>
-            <td th:text="${u.diaChi}"></td>
-            <td th:text="${u.tenSach}"></td>
-            <td>
-                <a th:href="@{'/admin/users/edit/' + ${u.id}}">Sửa</a> |
-                <a th:href="@{'/admin/users/delete/' + ${u.id}}"
-                   onclick="return confirm('Xoá khách hàng này?')">Xoá</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <a href="/admin/users/new">Thêm khách hàng mới</a>
 
-<a href="/admin/dashboard">Quay lại</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Họ tên</th>
+                <th>SĐT</th>
+                <th>Địa chỉ</th>
+                <th>Tên sách</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="u : ${users}">
+                <td th:text="${u.id}"></td>
+                <td th:text="${u.hoTen}"></td>
+                <td th:text="${u.sdt}"></td>
+                <td th:text="${u.diaChi}"></td>
+                <td th:text="${u.tenSach}"></td>
+                <td>
+                    <a th:href="@{'/admin/users/edit/' + ${u.id}}">Sửa</a>
+                    <a th:href="@{'/admin/users/delete/' + ${u.id}}"
+                       onclick="return confirm('Xoá khách hàng này?')">Xoá</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="/admin/dashboard" class="back">Quay lại bảng điều khiển</a>
+</div>
 </body>
 </html>

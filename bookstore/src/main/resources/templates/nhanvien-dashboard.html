@@ -3,21 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <title>Bảng điều khiển Nhân viên</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(180deg, #f4f6f8 0%, #e8f0ee 100%);
+            color: #333;
+            text-align: center;
+            padding-top: 80px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #007b5e;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 28px;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0069d9;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background-color: #007b5e;
+        }
+        .btn-success:hover {
+            background-color: #00664f;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-danger {
+            background-color: white;
+            color: #dc3545;
+            border: 2px solid #dc3545;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .dashboard-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .logout-section {
+            margin-top: 60px;
+        }
+
+        footer {
+            margin-top: 80px;
+            color: #777;
+            font-size: 14px;
+        }
+    </style>
 </head>
-<body class="container mt-5 text-center">
-    <h1 class="text-success mb-4">BẢNG ĐIỀU KHIỂN NHÂN VIÊN</h1>
+<body>
+
+    <h1>BẢNG ĐIỀU KHIỂN NHÂN VIÊN</h1>
     <p>Chọn chức năng bạn muốn thực hiện:</p>
 
-    <div class="d-flex justify-content-center gap-3 mt-4">
-        <a href="/admin/sach/list" class="btn btn-primary btn-lg">📚 Quản lý Sách</a>
-        <a href="/admin/users/list" class="btn btn-success btn-lg">👥 Quản lý Khách hàng</a>
+    <div class="dashboard-buttons">
+        <a href="/nhanvien/sach/list" class="btn btn-primary">Quản lý Sách</a>
+        <a href="/nhanvien/user/list" class="btn btn-success">Quản lý Khách hàng</a>
     </div>
 
-    <div class="mt-5">
+    <div class="logout-section">
         <form th:action="@{/nhanvien/logout}" method="post">
             <button type="submit" class="btn btn-outline-danger">Đăng xuất</button>
         </form>
     </div>
+
+    <footer>© 2025 Nhà sách Long Sơn Hà — Giao diện nhân viên</footer>
 </body>
 </html>

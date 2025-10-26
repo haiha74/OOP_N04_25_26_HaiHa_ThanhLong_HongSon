@@ -3,42 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <title>Thêm / Sửa Nhân viên</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007b5e;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #007b5e;
+            box-shadow: 0 0 4px rgba(0,123,94,0.4);
+            outline: none;
+        }
+
+        button {
+            width: 48%;
+            background-color: #007b5e;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #00664f;
+        }
+
+        .btn-secondary {
+            width: 48%;
+            background-color: #6c757d;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+            color: #007b5e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body class="container mt-5">
-    <h2 class="text-center text-success mb-4">Thông tin Nhân viên</h2>
+<body>
+<h2>Thêm / Sửa Nhân viên</h2>
 
-    <form th:action="@{/admin/nhanvien/save}" th:object="${nhanvien}" method="post" class="col-md-6 offset-md-3">
+<form th:action="@{/admin/nhanvien/save}" th:object="${nhanvien}" method="post">
+    <input type="hidden" th:field="*{id}">
 
-        <input type="hidden" th:field="*{id}">
+    <label>Họ tên:</label>
+    <input type="text" th:field="*{fullName}" placeholder="Nhập họ tên..." required>
 
-        <div class="mb-3">
-            <label class="form-label">Họ tên</label>
-            <input type="text" class="form-control" th:field="*{fullName}" placeholder="Nhập họ tên" required>
-        </div>
+    <label>Tên đăng nhập:</label>
+    <input type="text" th:field="*{username}" placeholder="Nhập tên đăng nhập..." required>
 
-        <div class="mb-3">
-            <label class="form-label">Tên đăng nhập</label>
-            <input type="text" class="form-control" th:field="*{username}" placeholder="Nhập tên đăng nhập" required>
-        </div>
+    <label>Mật khẩu:</label>
+    <input type="password" th:field="*{password}" placeholder="Nhập mật khẩu..." required>
 
-        <div class="mb-3">
-            <label class="form-label">Mật khẩu</label>
-            <input type="password" class="form-control" th:field="*{password}" placeholder="Nhập mật khẩu" required>
-        </div>
+    <label>Vai trò:</label>
+    <select th:field="*{role}">
+        <option value="NHANVIEN">Nhân viên</option>
+    </select>
 
-        <div class="mb-3">
-            <label class="form-label">Vai trò</label>
-            <select class="form-select" th:field="*{role}">
-                <option value="EMPLOYEE">Nhân viên</option>
-                <option value="ADMIN">Quản trị viên</option>
-            </select>
-        </div>
-
-        <div class="text-center mt-4">
-            <button type="submit" class="btn btn-primary px-4">Lưu</button>
-            <a href="/admin/nhanvien" class="btn btn-secondary px-4">Quay lại</a>
-        </div>
-    </form>
+    <div class="button-group">
+        <button type="submit">Lưu</button>
+        <a href="/admin/nhanvien" class="btn-secondary">Quay lại</a>
+    </div>
+</form>
 </body>
 </html>

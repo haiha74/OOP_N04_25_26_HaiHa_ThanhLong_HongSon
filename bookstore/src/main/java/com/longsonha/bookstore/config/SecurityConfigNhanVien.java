@@ -34,6 +34,7 @@ public class SecurityConfigNhanVien {
             .authenticationProvider(nhanVienAuthProvider())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/nhanvien/login", "/css/**").permitAll()
+                .requestMatchers("/nhanvien/sach/**", "/nhanvien/user/**").hasRole("NHANVIEN")
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form

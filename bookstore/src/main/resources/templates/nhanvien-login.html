@@ -1,24 +1,116 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Đăng nhập Nhân viên</title>
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-</head>
-<body class="container text-center mt-5">
-    <h2 class="text-primary mb-4">🔑 Đăng nhập Nhân viên</h2>
+  <meta charset="UTF-8">
+  <title>Đăng nhập Nhân viên</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(180deg, #f4f6f8 0%, #e8f0ee 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-    <form th:action="@{/nhanvien/login}" method="post" class="col-md-4 offset-md-4">
-        <div class="mb-3">
-            <input type="text" name="username" class="form-control" placeholder="Tên đăng nhập" required>
-        </div>
-        <div class="mb-3">
-            <input type="password" name="password" class="form-control" placeholder="Mật khẩu" required>
-        </div>
-        <button type="submit" class="btn btn-success w-100">Đăng nhập</button>
+    .login-container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      width: 380px;
+      padding: 40px 35px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007b5e;
+      font-weight: 700;
+      margin-bottom: 30px;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    input:focus {
+      border-color: #007b5e;
+      box-shadow: 0 0 5px rgba(0, 123, 94, 0.4);
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      background-color: #007b5e;
+      border: none;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00664f;
+      transform: translateY(-1px);
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .error {
+      color: #d9534f;
+    }
+
+    .success {
+      color: #198754;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+      color: #777;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>Đăng nhập Nhân viên</h2>
+
+    <form th:action="@{/nhanvien/login}" method="post">
+      <div class="form-group">
+        <input type="text" name="username" placeholder="Tên đăng nhập" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" placeholder="Mật khẩu" required>
+      </div>
+      <button type="submit">Đăng nhập</button>
     </form>
 
-    <div th:if="${param.error}" class="text-danger mt-3">❌ Sai tài khoản hoặc mật khẩu!</div>
-    <div th:if="${param.logout}" class="text-success mt-3">✅ Đăng xuất thành công!</div>
+    <div th:if="${param.error}" class="message error">Sai tài khoản hoặc mật khẩu!</div>
+    <div th:if="${param.logout}" class="message success">Đăng xuất thành công!</div>
+
+    <div class="footer">© 2025 Nhà sách Long Sơn Hà</div>
+  </div>
 </body>
 </html>

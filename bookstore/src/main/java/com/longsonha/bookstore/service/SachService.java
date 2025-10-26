@@ -29,4 +29,8 @@ public class SachService {
     public Sach findById(Long id) {
         return repo.findById(id).orElse(null);
     }
+
+    public List<Sach> searchByName(String tenSach) {
+        return repo.findByTenSachContainingIgnoreCase(tenSach);
+    }
 }

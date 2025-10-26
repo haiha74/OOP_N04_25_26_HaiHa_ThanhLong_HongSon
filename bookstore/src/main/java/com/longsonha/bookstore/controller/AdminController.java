@@ -12,7 +12,6 @@ public class AdminController {
 
     private final NhanVienService nhanVienService;
 
-    //Constructor Injection
     public AdminController(NhanVienService nhanVienService) {
         this.nhanVienService = nhanVienService;
     }

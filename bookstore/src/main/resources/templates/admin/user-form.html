@@ -3,27 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <title>Thêm / Sửa khách hàng</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007b5e;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus {
+            border-color: #007b5e;
+            box-shadow: 0 0 4px rgba(0,123,94,0.4);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            background-color: #007b5e;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #00664f;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007b5e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <h2>Thông tin khách hàng</h2>
 
 <form th:action="@{/admin/users/save}" th:object="${user}" method="post">
     <input type="hidden" th:field="*{id}">
+
     <label>Họ tên:</label>
-    <input type="text" th:field="*{hoTen}" required><br>
+    <input type="text" th:field="*{hoTen}" placeholder="Nhập họ tên..." required>
 
     <label>Số điện thoại:</label>
-    <input type="text" th:field="*{sdt}" required><br>
+    <input type="text" th:field="*{sdt}" placeholder="Nhập số điện thoại..." required>
 
     <label>Địa chỉ:</label>
-    <input type="text" th:field="*{diaChi}" required><br>
+    <input type="text" th:field="*{diaChi}" placeholder="Nhập địa chỉ..." required>
 
     <label>Tên sách:</label>
-    <input type="text" th:field="*{tenSach}" required><br>
+    <input type="text" th:field="*{tenSach}" placeholder="Nhập tên sách đã mua..." required>
 
-    <button type="submit">Lưu</button>
+    <button type="submit">Lưu thông tin</button>
 </form>
 
-<a href="/admin/users">Quay lại danh sách</a>
+<a href="/admin/users" class="back-link">Quay lại danh sách khách hàng</a>
 </body>
 </html>
