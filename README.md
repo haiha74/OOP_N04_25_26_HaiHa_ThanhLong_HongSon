@@ -1,4 +1,4 @@
-## OOP_N04_25_26_HaiHa_ThanhLong_HongSon
+## OOP_N04_25_26_HaiHa_ThanhLong_HongSon : Dự án xây dựng ứng dụng web Cửa hàng sách Long-Sơn-Hà
 ## 👨‍🎓 Thông tin sinh viên
 ##
 - **Thành Viên:** Nguyễn Hải Hà  
@@ -11,44 +11,26 @@
 - **Mã sinh viên:** 23010883    
 
 ## Hệ thống sẽ bao gồm các chức năng cơ bản sau:
++ Quản lí admin : Admin có mọi quyền thêm, sửa, xóa, cập nhật sách-nhân viên-khách hàng.
++ Quản lý sách: Thêm, sửa, xóa thông tin sách , cập nhật số lượng sách.
++ Quản lý khách hàng: Thêm, sửa, xóa, cập nhật thông tin khách hàng; xem lịch sử mua hàng.
++ Quản lí nhân viên : Thêm, sửa, xóa, cập nhật nhân viên , nhân viên quản lí sách-khách hàng. 
++ Tìm kiếm sách: Cho phép tim kiếm sách theo tên.
 
-//+ Quản lý sách: Thêm, sửa, xóa thông tin sách; kiểm tra tình trạng sách. 
-//+ Quản lý độc giả: Thêm mới, cập nhật thông tin độc giả; kiểm soát số lượng sách mà mỗi 
-độc giả có thể mượn, xem lịch sử ghi mượn,.. 
-//+ Quản lý mượn – trả sách: Xử lý yêu cầu mượn sách, ghi nhận ngày mượn, hạn trả, kiểm 
-tra sách quá hạn và tính phí phạt nếu có. 
-//+ Tìm kiếm sách: Cho phép tra cứu sách theo các tiêu chí như mã sách, tiêu đề, tác giả, thể 
-loại, năm xuất bản,… 
-//+ Báo cáo thống kê: Hiển thị danh sách sách đang được mượn, số lượng sách còn lại trong 
-thư viện, danh sách độc giả vi phạm thời gian trả sách.
-
-
-+ Quản lý sách: Thêm, sửa, xóa thông tin sách; kiểm tra tình trạng sách. 
-+ Quản lý khách hàng: Thêm mới, cập nhật thông tin khách hàng; xem lịch sử mua sách,.. 
-+ Quản lý đơn hàng,hóa đơn: Xử lý yêu cầu mua sách, ghi nhận ngày mua, số tiền. 
-+ Tìm kiếm sách: Cho phép tra cứu sách theo các tiêu chí như mã sách, tiêu đề, tác giả, thể 
-loại, năm xuất bản,… 
-+ Báo cáo thống kê: Hiển thị danh sách sách đã được mua, số lượng sách còn lại trong 
-cửa hàng, thống kê .
 
 ## Đối tượng nghiên cứu
 Hệ thống tập trung vào quản lý các đối tượng chính trong thư viện, bao gồm:
 
-//+ Người quản lí : Thêm , sửa , xóa người quản lí
-//+ Sách: Thông tin về sách như mã sách, tiêu đề, tác giả, thể loại, số lượng, tình trạng.
-//+ Độc giả: Quản lý danh sách độc giả, bao gồm họ tên, mã độc giả, thông tin liên hệ, lịch sử mượn – trả.
-//+ Quá trình mượn – trả sách: Ghi nhận thông tin về sách đã mượn, hạn trả, tình trạng sách khi trả và các khoản phạt nếu trả muộn.
++ Người quản lí (admin) : Thêm , sửa , xóa người quản lí-nhân viên-khách hàng-sách.
++ Sách: Thông tin về sách như tên sách, tác giả, thể loại, số lượng sách, giá bán.
++ Khách hàng: Quản lý danh sách khách hàng, bao gồm họ tên, thông tin liên hệ, địa chỉ , tên sách đã mua.
++ Nhân viên : Quản lí nhân viên , nhân viên có quyền quản lí sách-khách hàng.
 
-+ Người quản lí : thêm, sửa, xóa người quản lí (admin)
-+ Sách : Thông tin về sách như mã sách, tên sách, tác giả, thể loại, giá bán,
-+ Khách hàng : Quản lí danh sách khách hàng, bao gồm họ tên, mã khách hàng, thông tin liên hệ, lịch sử mua sách
-+ Hóa đơn : Ghi nhận thông tin về sách đã mua , số tiền , ngày mua ,...
-+ Nhân viên : 
 ## Công nghệ sử dụng:
 + Giao diện Java Spring Boot.
-+ Ngôn ngữ lập trình: Java 
-+ Môi trường lập trình: Vscode
-+ Lưu trữ dữ liệu: MySQL để lưu thông tin sách, khách hàng và hóa đơn
++ Ngôn ngữ lập trình: Java .
++ Môi trường lập trình: Vscode.
++ Lưu trữ dữ liệu: MySQL kết hợp sử dụng Aiven để lưu trữ thông tin : sách , khách hàng , nhân viên , admin.
 
 ## Sơ đồ khối yêu cầu : 
 **1.1 UML Class Diagram**
