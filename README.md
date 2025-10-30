@@ -11,11 +11,11 @@
 - **Mã sinh viên:** 23010883    
 
 ## Hệ thống sẽ bao gồm các chức năng cơ bản sau:
-+ Quản lí admin : Admin có mọi quyền thêm, sửa, xóa, cập nhật sách-nhân viên-khách hàng.
++ Quản lý admin : Admin có mọi quyền thêm, sửa, xóa, cập nhật sách-nhân viên-khách hàng.
 + Quản lý sách: Thêm, sửa, xóa thông tin sách , cập nhật số lượng sách.
 + Quản lý khách hàng: Thêm, sửa, xóa, cập nhật thông tin khách hàng; xem lịch sử mua hàng.
-+ Quản lí nhân viên : Thêm, sửa, xóa, cập nhật nhân viên , nhân viên quản lí sách-khách hàng. 
-+ Tìm kiếm sách: Cho phép tim kiếm sách theo tên.
++ Quản lý nhân viên : Thêm, sửa, xóa, cập nhật nhân viên , nhân viên quản lý sách-khách hàng. 
++ Tìm kiếm sách: Cho phép tìm kiếm sách theo tên.
 
 
 ## Đối tượng nghiên cứu
