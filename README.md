@@ -35,11 +35,12 @@ Hệ thống tập trung vào quản lý các đối tượng chính trong thư 
 ## Sơ đồ khối yêu cầu : 
 **1 UML Class Diagram**
 
-**1.1 Class Diagram của 3 đối tượng**
+**1.1 Class Diagram của 4 đối tượng**
 
 <img width="744" height="712" alt="uml" src="https://github.com/user-attachments/assets/2a20ac02-d58a-430f-89cc-d18e0a6df066" />
 
 **1.2 UML Sequence Diagram**
+
 **1.2.1 Biểu đồ tuần tự chức năng “Đăng nhập”**
 <img width="869" height="424" alt="login" src="https://github.com/user-attachments/assets/b7ce3998-c60f-48db-a944-2501b6d62043" />
 
@@ -48,7 +49,8 @@ Hệ thống tập trung vào quản lý các đối tượng chính trong thư 
 <img width="814" height="310" alt="create" src="https://github.com/user-attachments/assets/815108e6-ba9b-469f-87f2-807a26ed78ea" />
 
 **1.2.3 Biểu đồ tuần tự chức năng “Xem danh sách người dùng”**
-<img width="814" height="310" alt="create" src="https://github.com/user-attachments/assets/445dd033-e890-4a10-8200-8d78d06e6405" />
+<img width="801" height="260" alt="read" src="https://github.com/user-attachments/assets/2ed37c1e-3cbe-4283-993f-36ef676da596" />
+
 
 **1.2.4 Biểu đồ tuần tự chức năng "Sửa thông tin nhân viên"**
 <img width="916" height="407" alt="edit" src="https://github.com/user-attachments/assets/2c94f833-66ad-4dc3-a98f-4992f5817713" />
